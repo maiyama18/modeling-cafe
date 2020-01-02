@@ -1,0 +1,51 @@
+@startuml
+
+object "机 : 製品" as Desk
+Desk : 型番 = D0101
+
+object "天板 : 製品" as TopBoard
+TopBoard : 型番 = T0212
+
+object "脚 : 製品" as Leg
+Leg : 型番 = F0132
+
+object "引き出し : 製品" as Draw
+Draw : 型番 = H0303
+
+object "箱 : 製品" as Box
+Box : 型番 = B0505
+
+object "棚 : 製品" as Shelf
+Shelf : 型番 = TA0635
+
+object ": 製品構成" as DeskTopBoard
+DeskTopBoard : 個数 = 1
+
+object ": 製品構成" as DeskLeg
+DeskLeg : 個数 = 4
+
+object ": 製品構成" as DeskDraw
+DeskDraw : 個数 = 1
+
+object ": 製品構成" as DrawBox
+DrawBox : 個数 = 2
+
+object ": 製品構成" as DrawShelf
+DrawShelf : 個数 = 1
+
+Desk -- DeskTopBoard
+DeskTopBoard -- TopBoard
+
+Desk -- DeskLeg
+DeskLeg -- Leg
+
+Desk -- DeskDraw
+DeskDraw -- Draw
+
+Draw -- DrawBox
+DrawBox -- Box
+
+Draw -- DrawShelf
+DrawShelf -- Shelf
+
+@enduml

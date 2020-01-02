@@ -1,0 +1,17 @@
+@startuml
+
+!include ../style.puml
+
+class "製品" as Product {
+    型番
+    名称
+}
+
+class "製品構成" as Components {
+    個数
+}
+
+Product "1" - "*" Components : 部品
+Product "1" - "*" Components : 製品
+
+@enduml

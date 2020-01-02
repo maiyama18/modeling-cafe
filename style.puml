@@ -1,0 +1,6 @@
+@startuml
+'skinparam monochrome true
+skinparam handwritten true
+skinparam shadowing false
+skinparam defaultFontName Rounded-X M+ 2m
+@enduml
