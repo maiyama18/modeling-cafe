@@ -8,7 +8,6 @@ class "職位変更" as RankOrder {
 }
 
 class "部署変更" as DepartmentOrder {
-    部署変更タイプ
 }
 
 class "社員" as Employee {
