@@ -1,0 +1,12 @@
+@startuml
+
+!include ../style.puml
+
+class "生徒" as Student {
+    生徒番号
+    名前
+}
+
+Student "0..1" ---> "*" Student : 連絡する
+
+@enduml
