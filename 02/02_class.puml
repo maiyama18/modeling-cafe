@@ -1,0 +1,35 @@
+@startuml
+
+class "辞令" as Order {
+    発令日
+}
+
+class "職位変更" as RankOrder {
+}
+
+class "部署変更" as DepartmentOrder {
+    部署変更タイプ
+}
+
+class "社員" as Employee {
+    名前
+}
+
+class "部署" as Department {
+    部署名
+}
+
+class "職位" as Rank {
+    職位名
+}
+
+DepartmentOrder "0..1" -up- "1" Order
+RankOrder "0..1" -up- "1" Order
+
+Employee "1" -right- "*" Order
+
+RankOrder "1" -- "1" Rank : 昇格/降格後の職位
+DepartmentOrder "1" -- "*" Department : 入場
+DepartmentOrder "1" -- "*" Department : 退場
+
+@enduml
