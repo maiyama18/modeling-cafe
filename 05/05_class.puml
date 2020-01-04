@@ -1,0 +1,56 @@
+@startuml
+
+!include ../style.puml
+
+class "すごろく" as Sugoroku {
+}
+
+class "プレイヤー" as Player {
+    名前
+    コマ番号
+}
+
+class "コマ" as Koma {
+    コマ番号
+}
+
+class "ふりだしコマ" as FuridasiKoma {
+}
+
+class "あがりコマ" as AgariKoma {
+}
+
+class "休みコマ" as RestKoma {
+    休み回数
+}
+
+class "移動コマ" as MoveKoma {
+}
+
+class "進むコマ" as MoveForwardKoma {
+   コマ数
+}
+
+class "戻るコマ" as MoveBackwardKoma {
+   コマ数
+}
+
+class "ふりだしに移動コマ" as MoveFuridasiKoma {
+}
+
+Sugoroku "1" -- "2..*" Koma
+
+Koma <|-- FuridasiKoma
+Koma <|-- AgariKoma
+Koma <|-- MoveKoma
+Koma <|-- RestKoma
+
+MoveKoma <|-- MoveForwardKoma
+MoveKoma <|-- MoveBackwardKoma
+MoveKoma <|-- MoveFuridasiKoma
+
+Sugoroku "1" -- "1..*" Player
+
+Player "1" -- "1" Player : 次にサイコロを振る
+
+@enduml
