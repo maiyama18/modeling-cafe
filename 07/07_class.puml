@@ -1,0 +1,35 @@
+@startuml
+
+!include ../style.puml
+
+class "作り方" as Recipe {
+}
+
+class "分量" as Bunryo {
+    値
+    単位
+}
+
+class "材料" as Ingredient {
+}
+
+class "素材" as RawIngredient {
+    名前
+}
+
+class "手順" as Tejun {
+    順番
+    内容
+}
+
+Recipe "1" - "1" Bunryo : 何皿分/何人分
+
+Recipe "1" -- "1..*" Tejun
+
+Recipe "1" -- "1..*" Ingredient
+
+Ingredient "1" -- "1" RawIngredient
+Ingredient "*" -- "1" Bunryo : 主表記
+Ingredient "*" -- "0..1" Bunryo : 副表記
+
+@enduml
