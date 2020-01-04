@@ -1,0 +1,39 @@
+@startuml
+
+!include ../style.puml
+
+class "山" as Mountain {
+    名前
+}
+
+class "登山ルート" as ClimbingRoute {
+    名前
+    /所要時間
+}
+
+class "登山ルート要素" as ClimbingRouteElement {
+    順番
+}
+
+class "地点間経路" as ClimbingPointRoute {
+    所要時間
+}
+
+class "地点" as ClimbingPoint {
+    名前
+}
+
+class "注意事項" as ClimbingPointRouteNote {
+    種別
+    内容
+}
+
+Mountain "1" - "*" ClimbingPoint
+ClimbingRoute "1" -- "1..*" ClimbingRouteElement
+ClimbingPoint "1" -down- "1" ClimbingPointRoute : From
+ClimbingPoint "1" -down- "1" ClimbingPointRoute : To
+ClimbingPointRoute "*" - "*" ClimbingPointRouteNote
+
+ClimbingRouteElement "*" - "1" ClimbingPointRoute
+
+@enduml
