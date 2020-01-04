@@ -1,0 +1,32 @@
+@startuml
+
+!include ../style.puml
+
+class "サンドイッチ" as Sandwich {
+    名前
+    形
+}
+
+class "パン" as Bread {
+    種類
+}
+
+class "材料" as Ingredient {
+    順番
+}
+
+class "素材" as RawIngredient {
+    名前
+}
+
+class "分量" as Quantity {
+    値
+    単位
+}
+
+Sandwich "*" - "1" Bread
+Sandwich "1" -- "*" Ingredient
+Ingredient "*" -left- "1" RawIngredient
+Ingredient "*" -right- "1" Quantity
+
+@enduml
