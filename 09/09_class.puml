@@ -1,0 +1,27 @@
+@startuml
+
+!include ../style.puml
+
+class "親" as Parent {
+}
+
+class "子" as Child {
+}
+
+class "プレゼント" as Present {
+    商品名
+    ステータス
+}
+note right of Present
+ステータス種別は以下
+- 希望伝達済
+- 購入済
+- 枕元設置済
+- 発見済
+end note
+
+Parent "1" -- "*" Present
+
+Child "1" - "*" Present
+
+@enduml
