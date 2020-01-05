@@ -1,0 +1,29 @@
+@startuml
+
+class "ひな壇" as Hinadan {
+}
+
+class "段" as Dan {
+    何段目
+}
+
+class "設置物" as Object {
+}
+
+class "ひな" as Hina {
+    種別
+}
+
+class "飾り" as Kazari {
+    種別
+}
+
+Hinadan "1" -- "1..*" Dan
+Dan "1" - "*" Object
+
+Object "0..1" -- "0..1" Object : 左隣
+
+Object <|-- Kazari
+Object <|-- Hina
+
+@enduml
